@@ -1,0 +1,152 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+
+
+body{
+  font-family: Poppins;
+  background: url(https://images.unsplash.com/photo-1550340499-a6c60fc8287c?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8);
+  background-size: 85%;
+  animation: animateLeftSectionBG 30s infinite linear;
+}
+
+@keyframes animateLeftSectionBG {
+  from{
+      background-position-x: 0%;
+  }to{
+      background-position-x: 165%;
+  }
+}
+
+body::-webkit-scrollbar {
+  display: none;
+}
+
+ul{
+  display: flex;
+  flex-direction: column;
+  padding-left: 0;
+  text-align: left;
+  margin: 20px auto;
+}
+
+li{
+  list-style: none;
+  margin: 5px 0;
+  padding: 10px 0;
+  padding-left: 10px;
+  border-radius: 5px;
+  animation-duration: .5s;
+  transition: .3s all ease;
+}
+
+li:not(.done):hover {
+  box-shadow: 0 0 5px -1px rgb(0 0 0 / 6%), 2px 1px 7px -1px rgb(0 0 0 / 5%);
+  margin: 5px 10px;
+  cursor: pointer;
+}
+
+li>span{
+  display: inline-flex;
+  opacity: .2;
+  width: 40px;
+  margin-right: 10px;
+  font-family: sans-serif;
+  letter-spacing: 4px;
+  text-decoration: none !important;
+}
+
+li button{
+  margin: 0 10px;
+}
+
+li b{
+  opacity: .8;
+  font-weight: 200;
+}
+
+.App {
+  text-align: center;
+}
+
+.overlay{
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  animation: animateBG 8s alternate linear infinite;
+  z-index: -1;
+  opacity: .95;
+  backdrop-filter: blur(5px);
+
+}
+
+@keyframes animateBG {
+  0%{
+    background-color: #4D77FF;
+  }50%{
+    background-color: #22577E;
+  }100%{
+    background-color: #00AFC1;
+  }
+}
+
+
+.container{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,120%);
+  width: 50%;
+  border-radius: 10px;
+  box-shadow: 0 0 10px 4px rgba(0,0,0,.1);
+  animation: fadeInContainer 1s linear, animateBorder 1s linear .7s;
+  animation-fill-mode: forwards;
+}
+
+@keyframes fadeInContainer {
+  
+  from{
+    transform: translate(-50%,120%);
+  }to{
+    transform: translate(-50%,-50%);
+  }
+  
+}
+
+@keyframes animateBorder {
+  
+  from{
+    box-shadow: none;
+  }to{
+    box-shadow: 11px 12px 0 0 #ffffff30;
+    border-radius: 3px;
+  }
+  
+}
+
+.ant-card{
+  width: 100% !important;
+}
+
+.tooltipMonsieur{
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  background: transparent;
+  color: white;
+  border-color: white !important;
+}
+
+.done {
+  background: #eee;
+  filter: grayscale(100%) opacity(.4);
+  transition: .5s all;
+}
+
+.done b{
+  text-decoration: line-through;
+}
+
+/* .done *{
+  pointer-events: none;
+} */
